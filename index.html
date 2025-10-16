@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ByeNongo - Feira de Ciências</title>
+<style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+        font-family: Arial, sans-serif;
+        line-height:1.6;
+        color:#1a381d;
+
+        /* Fundo com imagem suave */
+        background-image: url('sua-imagem.jpg'); /* substitua pelo caminho real */
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center top;
+        background-color: rgba(208,228,184,0.7);
+        background-blend-mode: lighten;
+    }
+
+    header {
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    header img {
+    display: block;
+    margin: 0 auto;     /* centraliza horizontalmente */
+    padding: 0;
+    max-width: 100%;    /* nunca maior que a tela */
+    height: auto;       /* mantém proporção */
+}
+
+
+    nav {
+        background-color: rgba(167,196,140,0.9);
+        display:flex;
+        justify-content:center;
+        flex-wrap:wrap;
+        position:relative;
+    }
+
+    nav a {
+        margin:5px 15px;
+        text-decoration:none;
+        color:#1a381d;
+        font-weight:bold;
+        transition: color 0.3s;
+        cursor:pointer;
+    }
+
+    nav a:hover { color:#ffffff; }
+
+    .menu-toggle {
+        display:none;
+        flex-direction:column;
+        justify-content:space-around;
+        width:30px;
+        height:25px;
+        cursor:pointer;
+        margin:10px;
+        z-index:2;
+    }
+
+    .menu-toggle div {
+        width:100%;
+        height:4px;
+        background-color:#1a381d;
+        transition:all 0.3s ease;
+    }
+
+    section {
+        padding:20px;
+        max-width:900px;
+        margin:20px auto;
+        display:none;
+        opacity:0;
+        transition: opacity 0.5s ease;
+        background-color: rgba(255,255,255,0.8);
+        border-radius:8px;
+    }
+
+    section.active { display:block; opacity:1; }
+
+    h1,h2 { margin-bottom:15px; }
+    p { margin-bottom:15px; padding:10px; border:2px solid #7fa26a; border-radius:8px; background-color:#e1f0d9; }
+
+    /* Seção Equipe */
+    .team-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin-top: 20px;
+    }
+
+    .team-member {
+        text-align: center;
+        flex: 0 0 150px;
+    }
+
+    .team-member img {
+        width: 150px;
+        height: 150px;
+        object-fit: cover;
+        border: 4px solid #7fa26a;
+        border-radius: 10px;
+        margin-bottom: 10px;
+    }
+
+    .team-member p { font-weight: bold; }
+
+    @media(max-width:768px){
+        nav a {
+            display:block;
+            width:100%;
+            text-align:center;
+            padding:0;
+            border-top:1px solid #ffffff50;
+            max-height:0;
+            opacity:0;
+            overflow:hidden;
+            transition:max-height 0.3s ease, opacity 0.3s ease;
+        }
+        nav a.show { max-height:100px; opacity:1; }
+        .menu-toggle { display:flex; }
+    }
+
+    @media(max-width:480px){
+        header img { max-width: 100%; height:auto; }
+        nav a { font-size:0.9em; }
+        section { padding:10px; }
+        .team-member { flex: 0 0 120px; }
+        .team-member img { width: 120px; height: 120px; }
+    }
+
+    /* Animação do X */
+    .menu-toggle.open div:nth-child(1){ transform: rotate(45deg) translate(5px,5px); }
+    .menu-toggle.open div:nth-child(2){ opacity:0; }
+    .menu-toggle.open div:nth-child(3){ transform: rotate(-45deg) translate(6px,-6px); }
+</style>
+</head>
+<body>
+
+<header>
+    <img src="imagem3.jpeg" alt="ByeNongo" >
+</header>
+
+<nav>
+    <div class="menu-toggle" id="menu-toggle">
+        <div></div><div></div><div></div>
+    </div>
+    <a data-target="introducao">Introdução</a>
+    <a data-target="objetivo">Objetivo</a>
+    <a data-target="metodologia">Metodologia</a>
+    <a data-target="resultados">Resultados</a>
+    <a data-target="conclusao">Conclusão</a>
+    <a data-target="referencias">Referências</a>
+    <a data-target="equipe">Equipe</a>
+</nav>
+
+<section id="introducao">
+    <h2>Introdução</h2>
+    <p>O projeto tem como objetivo desenvolver um spray inseticida natural feito a partir da folha de siriguela (Spondias purpurea) para combater pernilongos. A planta foi escolhida por conter compostos fenólicos, como flavonoides, que possuem propriedades antioxidantes, antimicrobianas e potencialmente inseticidas.<br> Essa alternativa busca substituir os inseticidas químicos, que causam danos à saúde e ao meio ambiente, oferecendo uma opção mais acessível, natural e segura para o controle desses insetos e contribuindo para a preservação ambiental e a saúde pública.</p>
+</section>
+
+<section id="objetivo">
+    <h2>Objetivo</h2>
+    <p>• Incentivar a população de Rio do Antônio e comunidades próximas a se cuidar em relação a doenças transmissíveis dos pernilongos.<br><br>
+* Comparar a eficácia do inseticida natural com o inseticida químico.<br>
+* Propor uma alternativa acessível e respeitando o meio ambiente para o controle de pernilongos na comunidade.<br>
+* Investigar as propriedades naturais da folha da siriguela com potencial inseticida.</p>
+</section>
+
+<section id="metodologia">
+    <h2>Metodologia</h2>
+    <p>A pesquisa, de caráter bibliográfico, descritivo e explicativo, foi realizada no município de Rio do Antônio-BA por duas alunas do 1º ano do Colégio Estadual de Tempo Integral de Rio do Antônio.<br> O tema surgiu em sala de aula e despertou o interesse em compreender o impacto dos pernilongos na comunidade e buscar soluções. As alunas pesquisaram em sites, revistas e artigos científicos, além de consultarem a Secretaria de Saúde Pública para entender melhor o problema.<br> Também visitaram locais de proliferação dos insetos e, após estudar as propriedades da folha de siriguela, decidiram desenvolver um inseticida natural a partir dessa planta.<br><br>
+Para esse experimento foram utilizados:<br>
+2 Limões<br>
+3 Dentes de alho<br>
+10 Folhas de hortelã<br>
+20 Folhas do pé de siriguela<br><br>
+Todos os ingredientes foram colocados no liquidificador e batidos por 3 minutos. Após coar o líquido em uma peneira, transferimos para um borrifador para facilitar a aplicação. O tempo máximo de armazenamento é de 10 dias para garantir a eficácia do produto.<br><br>
+Capturamos um pernilongo e aplicamos o inseticida; após cerca de 30 segundos, o inseto morreu. Com base nesse resultado, pode-se concluir que o spray inseticida à base da folha de siriguela apresenta potencial para matar pernilongos, sendo assim, uma alternativa natural e eficaz para o seu combate.</p>
+</section>
+
+<section id="resultados">
+    <h2>Resultados</h2>
+    <p>Conteúdo dos resultados.<br>
+        <img src="imagem1.jpeg" alt="" style="max-width:200px; width:30%; height:auto; margin:10px;">
+        <img src="imagem2.jpeg" alt="" style="max-width:200px; width:30%; height:auto; margin:10px;">
+    </p>
+</section>
+
+<section id="conclusao">
+    <h2>Conclusão</h2>
+    <p>O projeto comprovou que a folha de siriguela possui potencial inseticida contra pernilongos. A partir de pesquisas e testes, foi desenvolvida uma fórmula simples, acessível e segura para o meio ambiente e a saúde. A iniciativa destaca a importância de soluções locais baseadas na ciência e na biodiversidade regional, contribuindo para a melhoria da qualidade de vida em Rio do Antônio.</p>
+</section>
+
+<section id="referencias">
+    <h2>Referências</h2>
+    <p>SOZZA, Nicole Fernanda. "Aedes aegypti"; Brasil Escola. [s.d.]. Disponível em: https://brasilescola.uol.com.br/animais/aedes-aegypti.htm. Acesso em 01 de junho de 2025.<br>
+ANG-LAY, Giorgia. Ciriguela. Mundo Educação. [s.d.]. Disponível em: https://mundoeducacao.uol.com.br/biologia/ciriguela.htm. Acesso em 30 de maio de 2025.<br>
+CNN BRASIL. Por que os pernilongos ‘atacam’ no calor e outras dúvidas sobre os mosquitos. 11 set. 2020. Disponível em: https://www.cnnbrasil.com.br/saude/por-que-os-pernilongos-atacam-no-calor-e-outras-duvidas-sobre-os-mosquitos/. Acesso em 08 de maio de 2025.<br>
+INSTITUTO BUTANTAN. Descubra as diferenças entre o mosquito transmissor da dengue e o pernilongo, e o que atrai cada um. 04 abril. 2024. Disponível em: https://butantan.gov.br/noticias/descubra-as-diferencas-entre-o-mosquito-transmissor-da-dengue-e-o-pernilongo-e-o-que-atrai-cada-um. Acesso em 10 de maio de 2025.<br>
+RODRIGUES, Gabriel. Mosquito da dengue é o único que tem listras brancas? Especialista responde. O TEMPO, 02 abril. 2024. Disponível em: https://www.otempo.com.br/brasil/mosquito-da-dengue-e-o-unico-que-tem-listras-brancas-especialista-responde-1.3359085. Acesso em 15 de maio de 2025.<br>
+TESTONI, Marcelo. Conheça 10 problemas de saúde causados por mosquitos. UOL, 21 fev. 2024. Disponível em: https://www.uol.com.br/vivabem/noticias/redacao/2024/02/21/conheca-10-problemas-de-saude-causados-por-mosquitos.htm. Acesso em 24 de maio de 2025.</p>
+</section>
+
+<section id="equipe">
+    <h2>Integrantes da equipe</h2>
+    <div class="team-container">
+        <div class="team-member">
+            <img src="integrante1.jpeg" alt="Valéria de Souza">
+            <p>Valéria de Souza</p>
+        </div>
+        <div class="team-member">
+            <img src="integrante2.jpeg" alt="Nome do Integrante">
+            <p>Nome do Integrante</p>
+        </div>
+        <div class="team-member">
+            <img src="integrante3.jpeg" alt="Nome do Integrante">
+            <p>Nome do Integrante</p>
+        </div>
+        <div class="team-member">
+            <img src="integrante4.jpeg" alt="Nome do Integrante">
+            <p>Nome do Integrante</p>
+        </div>
+        <div class="team-member">
+            <img src="integrante5.jpeg" alt="Nome do Integrante">
+            <p>Nome do Integrante</p>
+        </div>
+    </div>
+</section>
+
+<script>
+const menuToggle = document.getElementById('menu-toggle');
+const navLinks = document.querySelectorAll('nav a');
+const sections = document.querySelectorAll('section');
+
+// Alterna menu hambúrguer
+menuToggle.addEventListener('click', () => {
+    navLinks.forEach(link => link.classList.toggle('show'));
+    menuToggle.classList.toggle('open');
+});
+
+// Exibir apenas a seção clicada com fade
+navLinks.forEach(link => {
+    link.addEventListener('click', () => {
+        const target = link.getAttribute('data-target');
+        sections.forEach(sec => {
+            sec.classList.toggle('active', sec.id === target);
+        });
+        navLinks.forEach(l => l.classList.remove('show'));
+        menuToggle.classList.remove('open');
+    });
+});
+
+// Inicializa mostrando apenas a primeira seção
+sections.forEach((sec,i) => sec.classList.toggle('active', i===0));
+</script>
+
+<footer>
+    <p>🌱 Projeto da feira de ciências ByeNongo © 2025</p>
+</footer>
+
+</body>
+</html>
